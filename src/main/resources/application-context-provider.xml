@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	   ">
+	<dubbo:application name="ws-demo" />
+
+               
+	<dubbo:registry address="N/A" />
+               <!--
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
+-->
+	<!--
+               <dubbo:protocol name="hessian" port="8080" server="servlet" />
+                -->
+               <dubbo:protocol name="jsonrpc" port="8080" server="servlet" />
+               <!--
+	<dubbo:protocol name="http" port="8080" server="servlet" contextpath="http" />
+                -->
+
+                <dubbo:provider protocol="jsonrpc" />
+
+	<bean id="helloService" class="com.dubbo.demo.impl.HelloServiceImpl"/>
+
+	<dubbo:service interface="com.dubbo.demo.HelloService" version="1.0.0"
+				   protocol="jsonrpc" ref="helloService"/>
+</beans>
