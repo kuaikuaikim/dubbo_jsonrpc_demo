@@ -7,11 +7,12 @@
 	   ">
 	<dubbo:application name="ws-demo" />
 
-               
+        <!--       
 	<dubbo:registry address="N/A" />
-               <!--
+	-->
+               
 	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
--->
+
 	<!--
                <dubbo:protocol name="hessian" port="8080" server="servlet" />
                 -->
